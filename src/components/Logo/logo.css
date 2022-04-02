@@ -1,0 +1,9 @@
+.logo {
+    display: inline;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    color: var(--color-2);
+    font-family: var(--font-2);
+}

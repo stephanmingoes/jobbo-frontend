@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.logo h1{
+    font-size: 2.1rem;
+}
+.navbar h2{
+    font-family: var(--font-2);
+    color: var(--color-2);
+}
+.profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-1);
+    color: #fff;
+    border-radius: 5px;
+    padding: .3rem 1rem;
+    font-size: 1rem;
+}
+.profile:hover{
+    cursor: pointer;
+background:#41405a ;
+transition: ease-in-out .3s;
+}
+
+.profile span{
+    margin-left: 0.7rem;
+}
+
+@media screen and (max-width: 550px) {
+    .profile span{
+        display: none;
+    }
+
+
+}
+    

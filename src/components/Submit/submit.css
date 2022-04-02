@@ -1,0 +1,66 @@
+.dashboard-submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+.dashboard{
+    width: 100%;
+    background: var(--color-1);
+    border-radius: 10px;
+    padding: 2rem;
+}
+.feilds{
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.feilds input , select{
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(68, 67, 87);
+    padding: 0 1rem;
+    font-size: 1rem;
+    height: 3rem;
+    width: 100%;
+}
+.feilds input::placeholder{
+    color: #fff;
+    opacity: 60%;
+}
+.left{
+    margin-right: 0.5rem;
+    margin-bottom: 2rem;
+}
+.right{
+    margin-left: 0.5rem;
+    margin-bottom: 2rem;
+}
+.dashboard button{
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: var(--color-2);
+    height: 3rem;
+    width: 100%;
+  
+}
+
+
+@media screen and (max-width: 550px) { 
+        .feilds  {
+      flex-direction: column;
+    }
+    .feilds input, button {
+      margin: 1rem 0;
+    }
+}
