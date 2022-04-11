@@ -1,11 +1,11 @@
-import React, { useReducer, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./submit.css";
 import { MyContext } from "../../App";
 import * as api from "../../api/index";
 import * as actions from "../../actionTypes/actionTypes";
 const Submit = () => {
   const { jobsState, jobsDispatch } = useContext(MyContext);
-
+  const [loading, setLoading] = useState(false);
   const [jobData, setJobData] = useState({
     title: "",
     company: "",
@@ -35,11 +35,14 @@ const Submit = () => {
   const handleSubmit = async () => {
     if (validateData()) {
       try {
+        setLoading(true);
         const { data } = await api.createJob(jobData);
         jobsDispatch({ type: actions.CREATE_JOB, payload: data.data });
         setJobData({ title: "", company: "", location: "", status: "Pending" });
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     }
   };
@@ -85,7 +88,9 @@ const Submit = () => {
             value={jobData.location}
           />
         </div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>
+          {loading ? "Loading..." : "Submit"}
+        </button>
       </div>
     </div>
   );

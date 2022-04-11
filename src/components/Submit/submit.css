@@ -60,6 +60,9 @@
         .feilds  {
       flex-direction: column;
     }
+    .right{
+        margin: 16px 0;
+    }
     .feilds input, button {
       margin: 1rem 0;
     }

@@ -7,6 +7,7 @@ import "./update.css";
 
 const UpdateJob = () => {
   const { id } = useParams();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [jobData, setJobData] = useState({
     title: "",
@@ -46,10 +47,13 @@ const UpdateJob = () => {
   const handleSubmit = async () => {
     if (validateData()) {
       try {
+        setLoading(true);
         const { data } = await api.updateJob(jobData, jobData._id);
+        setLoading(false);
         navigate("/dashboard");
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     }
   };
@@ -104,7 +108,10 @@ const UpdateJob = () => {
               value={jobData.location}
             />
           </div>
-          <button onClick={handleSubmit}>Update</button>
+          <button onClick={handleSubmit}>
+            {" "}
+            {loading ? " Loading..." : "Update"}
+          </button>
         </div>
       </div>
     </>

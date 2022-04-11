@@ -8,6 +8,7 @@ import "./auth.css";
 
 const Auth = ({ setUser }) => {
   const [pwd, setPwd] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [success, setSuccess] = useState({ status: null, message: null });
   const [authState, authDispatch] = useReducer(authReducer, authInitialState);
@@ -21,19 +22,23 @@ const Auth = ({ setUser }) => {
     try {
       if (toggle) {
         if (validateCredentials(cred)) {
+          setLoading(true);
           const { data } = await api.signup(cred);
           if (data) {
             setSuccess({ status: true, message: data.message });
           }
+          setLoading(false);
         }
       } else {
         if (cred.email.trim() !== "" && cred.password.trim() !== "") {
+          setLoading(true);
           const { data } = await api.login(cred);
           if (data) {
             setSuccess({ status: true, message: data.message });
             authDispatch({ type: actions.LOGIN, payload: data.data });
             setUser(localStorage.getItem("profile"));
           }
+          setLoading(false);
         } else {
           alert("Input fields cannot be empty.");
         }
@@ -41,6 +46,7 @@ const Auth = ({ setUser }) => {
     } catch (error) {
       console.log(error);
       setSuccess({ status: false, message: "Oh no, something went wrong." });
+      setLoading(false);
     }
   };
 
@@ -91,7 +97,7 @@ const Auth = ({ setUser }) => {
             handleClick(credentials);
           }}
         >
-          {toggle ? "Sign up" : "Log in"}
+          {loading ? "Loading..." : toggle ? "Sign up" : "Log in"}
         </button>
         {toggle ? (
           <p>

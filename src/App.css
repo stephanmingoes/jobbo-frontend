@@ -18,6 +18,9 @@ body {
 .section__padding {
     padding: 2rem 12rem;
 }
+/* .section__margin {
+    margin: 2rem 12rem;
+} */
 
 @media screen and (max-width: 550px) {
     .section__padding {

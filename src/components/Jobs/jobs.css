@@ -1,0 +1,34 @@
+
+
+.heading{
+    font-weight: 700;
+}
+
+
+.edit, .delete{
+    cursor: pointer;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 2px 4px;
+    border-radius: 10px;
+}
+.edit {
+    color: rgb(13, 248, 138);
+
+}
+.delete{
+
+    color: var(--color-2);
+}
+.delete:hover{
+
+    background: #f1c4c53f;
+    transition: ease-in-out 0.2s;
+}
+
+.edit:hover{
+    background: rgba(168, 230, 199, 0.276);
+     transition: ease-in-out 0.2s;
+}
