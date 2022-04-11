@@ -27,7 +27,7 @@ export default function BasicTable({ data }) {
     setPage(0);
   };
   return (
-    <div className="section__padding table_container">
+    <TableContainer className="section__padding table_container">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -103,6 +103,6 @@ export default function BasicTable({ data }) {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-    </div>
+    </TableContainer>
   );
 }

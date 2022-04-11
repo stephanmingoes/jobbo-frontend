@@ -4,7 +4,7 @@ import { MyContext } from "../../App";
 import * as api from "../../api/index";
 import * as actions from "../../actionTypes/actionTypes";
 const Submit = () => {
-  const { jobsState, jobsDispatch } = useContext(MyContext);
+  const { jobsDispatch } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
   const [jobData, setJobData] = useState({
     title: "",
